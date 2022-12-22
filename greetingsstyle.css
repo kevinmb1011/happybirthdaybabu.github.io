@@ -32,6 +32,7 @@ body {
   width: 50%;
   position: absolute;
   left: 50.1%;
+  
 }
 .inside {
   background: linear-gradient(to right, #e7e7e7, #ffffff 30%);
@@ -44,6 +45,7 @@ body {
   align-items: center;
   left: 50%;
   font-size: small;
+  
 }
 .outside {
   -webkit-transform-style: preserve-3d;
