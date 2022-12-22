@@ -1,0 +1,163 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #eac285;
+}
+.container {
+  width: 400px;
+  height: 400px;
+  background-color: #ffffff;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 8px;
+  box-shadow: 0 20px 45px rgba(120, 76, 10, 0.25);
+}
+.cake {
+  width: 100%;
+  position: absolute;
+  bottom: 60px;
+}
+.bottom-layer,
+.top-layer,
+.middle-layer {
+  height: 80px;
+  width: 240px;
+  position: relative;
+  margin: auto;
+  background-repeat: repeat;
+  background-size: 100% 100%, 60px 100px;
+  background-position: 28px 0;
+  background-image: linear-gradient(
+      transparent 50px,
+      #e3a953 50px,
+      #e3a953 60px,
+      transparent 60px
+    ),
+    radial-gradient(circle at 30px 5px, #713e16 30px, #eac284 31px);
+}
+.middle-layer {
+  transform: scale(0.85);
+  top: 72px;
+  animation: rise-1 2s forwards;
+}
+@keyframes rise-1 {
+  100% {
+    top: 7px;
+  }
+}
+.top-layer {
+  transform: scale(0.7);
+  top: 144px;
+  animation: rise-2 2s 2s forwards;
+}
+@keyframes rise-2 {
+  100% {
+    top: 26px;
+  }
+}
+.candle {
+  background: repeating-linear-gradient(
+    45deg,
+    #fd3018 0,
+    #fd3018 5px,
+    #ffa89e 5px,
+    #ffa89e 10px
+  );
+  height: 45px;
+  width: 15px;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  animation: rise-3 1s 4s forwards;
+}
+@keyframes rise-3 {
+  100% {
+    bottom: 202px;
+  }
+}
+.candle:after {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  background-color: #ffee54;
+  border-radius: 0 50% 50% 50%;
+  transform: scale(0) rotate(45deg);
+  bottom: 50px;
+  left: -0.5px;
+  animation: flame 1.5s 5s forwards;
+}
+@keyframes flame {
+  100% {
+    transform: scale(1) rotate(45deg);
+  }
+}
+.glow-on-hover {
+  width: 120px;
+  height: 75px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: rgb(238, 237, 237);
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  font-family: cursive;
+}
+
+.glow-on-hover:before {
+  content: '';
+  background: linear-gradient(45deg, #ddb3b3, #dfbca0, #e7e7d6, #d5dbd2, #d1dbda, #dfacdc, #81768d, #dfc5d9, #ddbfbf);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-on-hover:active {
+  color: rgb(230, 218, 218)
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgb(199, 163, 163);
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
